@@ -1,7 +1,21 @@
-import { useState } from "react"
-import { ShoppingCartOutlined } from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../store/cartSlice'
+import ButtonAddToCart from "../buttons/ButtonAddToCart"
 
 const RollsMenuCard = (props) => {
+
+    const item = {
+        id: Date.now(),
+        name: props.name,
+        img: `./src/assets/img/rolls/${props.img}`,
+        price: props.price
+    }
+
+    const dispatch = useDispatch()
+
+    function handleAddToCart () {
+        dispatch(addToCart(item))
+    }
 
     return (
         <div className="border-2 rounded-3xl overflow-hidden mb-3 p-4 flex flex-col justify-between">
@@ -9,7 +23,7 @@ const RollsMenuCard = (props) => {
                 <img src={`./src/assets/img/rolls/${props.img}`} className="mx-auto" alt={props.name} />
             </div>
 
-            <h2 className="text-xl font-bold text-center"> {props.name} </h2>
+            <h2 className="text-2xl font-bold text-center"> {props.name} </h2>
 
             <div className="menu-card-composition">
                 <p className="text-lg text-center leading-none mb-3"> {props.composition} </p>
@@ -19,9 +33,7 @@ const RollsMenuCard = (props) => {
                 <div className="w-[130px] h-[40px] text-center bg-teal-500 leading-9 text-xl font-semibold rounded-2xl">
                     {props.price}грн
                 </div>
-                <div className="menu-card-button-add">
-                    <button className="w-[130px] h-[40px] rounded-2xl bg-amber-700 font-semibold shadow-[2px_2px_4px_#000] flex items-center justify-center gap-2 text-white hover:bg-amber-800 transition cursor-pointer"><ShoppingCartOutlined /> В КОШИК</button>
-                </div>
+                <ButtonAddToCart addItemToCart = {handleAddToCart} item = {item}/>
             </div>
         </div>
     )

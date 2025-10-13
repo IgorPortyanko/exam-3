@@ -1,21 +1,33 @@
 import { CloseCircleOutlined } from '@ant-design/icons'
+import CartList from './CartList'
+import { useSelector } from 'react-redux'
+import { selectTotalSum } from '../../store/cartSlice'
 
-const CartModal = () => {
+const CartModal = ({ onClose }) => {
+
+    const total = useSelector(selectTotalSum)
 
     return (
-        <div className=''>
-             <div className=" bg-gray-400">
-                <h3>Корзина товарів</h3>
-                <span><CloseCircleOutlined/></span>
-             </div>
-             <div className="main"></div>   
-             <div className="footer  bg-gray-400">
-                <div>
+        <div className='fixed top-0 left-0 right-0 bottom-0 h-screen flex flex-col'>
+            <div className=" bg-gray-300 relative py-5 text-center">
+                <h3 className='font-semibold'>Корзина товарів</h3>
+                <span className='absolute top-0 left-1'>
+                    <CloseCircleOutlined
+                        style={{ color: 'red' }}
+                        onClick={onClose}
+                    />
+                </span>
+            </div>
+            <div className="main flex-auto bg-gray-200">
+                <CartList/>
+            </div>
+            <div className="footer  bg-gray-300 px-4 py-3" >
+                <div className='text-2xl mb-2 flex justify-between'>
                     <span>До оплати:</span>
-                    <span>sum</span>
+                    <span>{total} грн</span>
                 </div>
-                <button>ОФОРМИТИ ЗАМОВЛЕННЯ</button>
-             </div>
+                <button className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'>ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+            </div>
         </div>
     )
 }
