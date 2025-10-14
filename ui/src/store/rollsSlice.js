@@ -11,7 +11,6 @@ const rollsSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(rollsList.fulfilled, (state, action) => {
             state.rolls = action.payload 
-            console.log(state.rolls)
         })
     }
 })

@@ -11,7 +11,6 @@ const setsSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(setsList.fulfilled, (state, action) => {
             state.sets = action.payload 
-            console.log(state.sets)
         })
     }
 })

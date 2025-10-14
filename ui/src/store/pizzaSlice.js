@@ -11,7 +11,6 @@ const pizzaSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(pizzaList.fulfilled, (state, action) => {
             state.pizza = action.payload 
-            console.log(state.pizza)
         })
     }
 })

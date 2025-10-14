@@ -10,8 +10,7 @@ const burgerSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(burgerList.fulfilled, (state, action) => {
-            state.burger = action.payload 
-            console.log(state.burger)
+            state.burger = action.payload
         })
     }
 })

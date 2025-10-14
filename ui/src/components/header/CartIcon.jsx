@@ -1,6 +1,7 @@
 import {ShoppingCartOutlined } from '@ant-design/icons'
-import CartModal from '../cart/CartModal'
 import { useState } from 'react'
+import CartModal from '../cart/CartModal'
+import CartCount from './CartCount'
 
 const CartIcon = () => {
 
@@ -15,8 +16,9 @@ const CartIcon = () => {
     }
 
     return (
-        <div className='cursor-pointer'>
+        <div className='cursor-pointer relative'>
             {isOpen && <CartModal onClose={handleCartClose}/>}
+            <CartCount/>
             <ShoppingCartOutlined onClick={handleCartOpen}/>
         </div>
     )

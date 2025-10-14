@@ -11,7 +11,6 @@ const sushiSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(sushiList.fulfilled, (state, action) => {
             state.sushi = action.payload 
-            console.log(state.sushi)
         })
     }
 })

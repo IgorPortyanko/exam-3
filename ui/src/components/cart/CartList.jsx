@@ -6,7 +6,7 @@ const CartList = () => {
     const cartList = useSelector(state => state.cart.cart)
 
     return (
-        <div>
+        <div className=" ">
             {cartList.map(el => <CartItem key={el.id} id={el.id} name={el.name} img={el.img} price={el.price} number={el.number}/>)}
         </div>
     )
