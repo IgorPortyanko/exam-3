@@ -6,7 +6,7 @@ import ButtonAddToCart from "../buttons/ButtonAddToCart"
 const SushiMenuCard = (props) => {
 
     const item = {
-        id: Date.now(),
+        id: props.id+props.name,
         name: props.name,
         img: `./src/assets/img/sushi/${props.img}`,
         price: props.price

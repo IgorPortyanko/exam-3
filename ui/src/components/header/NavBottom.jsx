@@ -1,4 +1,4 @@
-import {ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'
+import { UserOutlined } from '@ant-design/icons'
 import { Link } from 'react-router'
 import CartIcon from './CartIcon'
 

@@ -5,7 +5,7 @@ import ButtonAddToCart from "../buttons/ButtonAddToCart"
 const BurgerMenuCard = (props) => {
 
     const item = {
-        id: Date.now(),
+        id: props.id+props.name,
         name: props.name,
         img: `./src/assets/img/burger/${props.img}`,
         price: props.price
