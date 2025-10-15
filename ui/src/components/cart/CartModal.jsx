@@ -8,7 +8,7 @@ const CartModal = ({ onClose }) => {
     const total = useSelector(selectTotalSum)
 
     return (
-        <div className='fixed z-2 top-0 left-0 right-0 bottom-0 h-screen flex flex-col'>
+        <div className='fixed z-60 top-0 left-0 right-0 bottom-0 h-screen flex flex-col'>
             <div className=" bg-gray-300 relative py-5 text-center">
                 <h3 className='font-semibold'>Корзина товарів</h3>
                 <span className='absolute top-0 left-1'>

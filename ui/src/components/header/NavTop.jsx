@@ -1,4 +1,4 @@
-
+import { Link } from "react-router"
 
 const NavTop = () => {
 
@@ -13,7 +13,7 @@ const NavTop = () => {
             </div>
             <div className="top-right">
               <ul className="flex justify-between gap-5">
-                <li>Акції</li>
+                <li><Link to='/promo'>Акції</Link> </li>
                 <li>Доставка</li>
               </ul>
             </div>

@@ -11,7 +11,7 @@ const BurgerPage = () => {
     const getAllBurger = () => {
         dispatch(burgerList())
     }
-
+ 
     useEffect(() => {
         getAllBurger()
     }, [dispatch])

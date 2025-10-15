@@ -7,6 +7,7 @@ import BurgerPage from "./components/burger/BurgerPage";
 import RollsPage from "./components/rolls/RollsPage";
 import SetsPage from "./components/sets/SetsPage";
 import SushiPage from "./components/sushi/SushiPage";
+import PromoPage from "./components/promo/PromoPage";
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/rolls' element={<RollsPage/>}></Route>
           <Route path='/sets' element={<SetsPage/>}></Route>
           <Route path='/sushi' element={<SushiPage/>}></Route>
+          <Route path='/promo' element={<PromoPage/>}></Route>
         </Route>
       </Routes>
     </>
