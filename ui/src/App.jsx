@@ -8,6 +8,9 @@ import RollsPage from "./components/rolls/RollsPage";
 import SetsPage from "./components/sets/SetsPage";
 import SushiPage from "./components/sushi/SushiPage";
 import PromoPage from "./components/promo/PromoPage";
+import DeliveryPage from "./components/delivery/DeliveryPage";
+import ContactsPage from "./components/contacts/ContactsPage";
+import AuthPage from "./components/auth/AuthPage";
 import './App.css'
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
           <Route path='/sets' element={<SetsPage/>}></Route>
           <Route path='/sushi' element={<SushiPage/>}></Route>
           <Route path='/promo' element={<PromoPage/>}></Route>
+          <Route path='/delivery' element={<DeliveryPage/>}></Route>
+          <Route path='/contacts' element={<ContactsPage/>}></Route>
+          <Route path='/auth' element={<AuthPage/>}></Route>
         </Route>
       </Routes>
     </>

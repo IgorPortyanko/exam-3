@@ -23,7 +23,7 @@ const NavBottom = () => {
             </button>
             <div className="bottom-right">
               <ul className="flex justify-between gap-5">
-                <li className='text-4xl'><UserOutlined/></li>
+                <li className='text-4xl'><Link to='/auth'><UserOutlined/></Link></li>
                 <li className='text-4xl'><CartIcon/></li>
               </ul>
             </div>

@@ -7,14 +7,14 @@ const NavTop = () => {
         <div className="hidden md:flex flex-auto justify-between pb-5 border-b">
             <div className="top-left">
               <ul className="flex justify-between gap-5">
-                <li>Контакти</li>
+                <li><Link to='/contacts'>Контакти</Link></li>
                 <li>Час роботи: 10:00 - 21:00</li>
               </ul>
             </div>
             <div className="top-right">
               <ul className="flex justify-between gap-5">
                 <li><Link to='/promo'>Акції</Link> </li>
-                <li>Доставка</li>
+                <li><Link to='/delivery'>Доставка</Link></li>
               </ul>
             </div>
         </div>
