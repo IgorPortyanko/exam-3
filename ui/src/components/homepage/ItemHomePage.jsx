@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 const ItemHomePage = ({page, name, img}) => {
 
     return(
-        <Link to={`/${page}`} className='md:basis-4/9'>
+        <Link to={`/${page}`} className='md:basis-[47%]'>
             <div className="w-full border-4 rounded-xl mb-3  ">
                 <div className="home-page-menu-img">
                     <img src={`../src/assets/img/mainPageMenu/${img}`} className='rounded-lg w-full' alt={name} />

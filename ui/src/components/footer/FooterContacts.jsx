@@ -1,4 +1,5 @@
 import {FacebookOutlined, XOutlined, InstagramOutlined } from '@ant-design/icons'
+import { Link } from 'react-router'
 
 const FooterContacts = () => {
 
@@ -11,9 +12,9 @@ const FooterContacts = () => {
                 <li>ruta-pizza@gmail.com</li>
                 <li>Київ, пр. Берестейський 22</li>
                 <li>
-                    <FacebookOutlined style={{ fontSize: '24px', marginRight: '20px' }} />
-                    <XOutlined style={{ fontSize: '24px', marginRight: '20px' }} />
-                    <InstagramOutlined style={{ fontSize: '24px' }} />
+                    <Link><FacebookOutlined style={{ fontSize: '24px', marginRight: '20px' }} /></Link>
+                    <Link><XOutlined style={{ fontSize: '24px', marginRight: '20px' }} /></Link>
+                    <Link><InstagramOutlined style={{ fontSize: '24px' }} /></Link>
                 </li>
             </ul>
         </div>

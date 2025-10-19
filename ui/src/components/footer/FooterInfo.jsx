@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router'
 
 const FooterInfo = () => {
 
@@ -6,11 +6,11 @@ const FooterInfo = () => {
         <div className="footer-info">
             <h3 className='font-bold text-xl'>RuTa</h3>
             <ul className="footer-list">
-                <li>Головна</li>
-                <li>Акції</li>
-                <li>Про нас</li>
-                <li>Доставка та оплата</li>
-                <li>Контакти</li>
+                <Link to='./'><li>Головна</li></Link>
+                <Link to='./promo'><li>Акції</li></Link>
+                <Link to='./about'><li>Про нас</li></Link>
+                <Link to='./delivery'><li>Доставка та оплата</li></Link>
+                <Link to='./contacts'><li>Контакти</li></Link>
             </ul>
         </div>
     )
