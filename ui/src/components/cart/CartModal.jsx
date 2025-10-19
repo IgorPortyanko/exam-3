@@ -2,6 +2,7 @@ import { CloseCircleOutlined } from '@ant-design/icons'
 import CartList from './CartList'
 import { useSelector } from 'react-redux'
 import { selectTotalSum } from '../../store/cartSlice'
+import { Link } from 'react-router'
 
 const CartModal = ({ onClose }) => {
 
@@ -27,9 +28,11 @@ const CartModal = ({ onClose }) => {
                         <span>До оплати:</span>
                         <span>{total} грн</span>
                     </div>
-                    <button className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'>
-                        ОФОРМИТИ ЗАМОВЛЕННЯ
-                    </button>
+                    <Link to='./checkout'>
+                        <button className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'>
+                            ОФОРМИТИ ЗАМОВЛЕННЯ
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import InputEmail from "../form/InputEmail";
 import InputMessage from "../form/InputMessage";
 import InputName from "../form/InputName";
 import InputTel from "../form/InputTel";
+import SubmitButton from "../form/SubmitButton";
 
 
 const ContactForm = () => {
@@ -43,18 +44,11 @@ const ContactForm = () => {
             <InputEmail register={register} errors={errors} />
             <InputTel register={register} errors={errors} />
             <InputMessage register={register} errors={errors} />
-
-            <button
-                type="submit"
-                disabled={!isValid || isSubmitting}
-                className={`w-full py-2 rounded-lg text-white text-lg transition
-                    ${isSubmitting
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700"
-                    }`}
-            >
-                {isSubmitting ? "Надсилаємо..." : "Надіслати"}
-            </button>
+            <SubmitButton 
+                    isValid={isValid} 
+                    isSubmitting={isSubmitting}
+                    title='Надіслати'
+                />
         </form>
     )
 }
