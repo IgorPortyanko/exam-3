@@ -4,13 +4,15 @@ import { promoList } from "../../store/promoSlice";
 import PromoItem from "./PromoItem";
 
 const PromoPage = () => {
-
-    const allPromo = useSelector(state => state.promo.promo)
+    const { allPromo, isLoading, error } = useSelector((state) => state.promo)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(promoList())
-    }, [dispatch])
+    }, [])
+
+    if (isLoading) return <p className="text-center text-3xl text-gray-500 mt-10">Завантаження...</p>;
+    if (error) return <p className="text-center text-red-500 mt-10">Помилка: {error}</p>;
 
     return (
         <div className="p-4 max-w-[1200px] mx-auto">

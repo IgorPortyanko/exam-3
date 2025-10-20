@@ -4,17 +4,15 @@ import { useEffect } from 'react'
 import SushiMenuCard from './SushiMenuCard'
 
 const SushiPage = () => {
-
-    const allSushi = useSelector((state) => state.sushi.sushi)
+    const { allSushi, isLoading, error } = useSelector((state) => state.sushi)
     const dispatch = useDispatch()
 
-    const getAllSushi = () => {
-        dispatch(sushiList())
-    }
-
     useEffect(() => {
-        getAllSushi()
-    }, [dispatch])
+        dispatch(sushiList())
+    }, [])
+
+    if (isLoading) return <p className="text-center text-3xl text-gray-500 mt-10">Завантаження...</p>;
+    if (error) return <p className="text-center text-red-500 mt-10">Помилка: {error}</p>;
 
     return(
         <div className='p-4 max-w-[1200px] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>

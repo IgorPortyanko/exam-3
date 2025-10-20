@@ -4,17 +4,15 @@ import { useEffect } from 'react'
 import RollsMenuCard from './RollsMenuCard'
 
 const RollsPage = () => {
-
-    const allRolls = useSelector((state) => state.rolls.rolls)
+    const { allRolls, isLoading, error } = useSelector((state) => state.rolls)
     const dispatch = useDispatch()
 
-    const getAllRolls = () => {
-        dispatch(rollsList())
-    }
-
     useEffect(() => {
-        getAllRolls()
-    }, [dispatch])
+        dispatch(rollsList())
+    }, [])
+
+    if (isLoading) return <p className="text-center text-3xl text-gray-500 mt-10">Завантаження...</p>;
+    if (error) return <p className="text-center text-red-500 mt-10">Помилка: {error}</p>;
 
     return(
         <div className='p-4 max-w-[1200px] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>

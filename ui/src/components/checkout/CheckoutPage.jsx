@@ -1,5 +1,5 @@
-import { useForm, Controller  } from "react-hook-form";
-import { useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { useEffect, useState } from "react";
 import InputName from "../form/InputName";
 import InputTel from "../form/InputTel";
 import InputEmail from "../form/InputEmail";
@@ -8,6 +8,7 @@ import StreetAutocomplete from "../form/StreetAutocomlete";
 import InputNumber from "../form/InputNumber";
 import PaymentMethod from "../form/PaymentMethod";
 import InputComment from "../form/InputComment";
+import SelectDeliveryMethod from "../form/SelectDeliveryMethod";
 
 const CheckoutPage = () => {
     const {
@@ -20,16 +21,17 @@ const CheckoutPage = () => {
         mode: "onChange",
     });
 
+    const [isDelivery, setIsDelivery] = useState(false)
+
     useEffect(() => {
-            const saved = localStorage.getItem("userData");
-            if (saved) {
-                reset(JSON.parse(saved));
-            }
-        }, [reset]);
+        const saved = localStorage.getItem("userData");
+        if (saved) {
+            reset(JSON.parse(saved));
+        }
+    }, [reset]);
 
     const onSubmit = (data) => {
         console.log("Надсилаємо дані:", data);
-        localStorage.setItem("userData", JSON.stringify(data));
         reset();
     };
 
@@ -43,48 +45,54 @@ const CheckoutPage = () => {
                 <InputName register={register} errors={errors} />
                 <InputEmail register={register} errors={errors} />
                 <InputTel register={register} errors={errors} />
-                <Controller
-                    name="street"
-                    control={control}
-                    rules={{
-                        required: "Введіть вулицю",
-                    }}
-                    render={({ field, fieldState }) => (
-                        <div>
-                            <StreetAutocomplete
-                                value={field.value || ""}
-                                onChange={(val) => field.onChange(val)}
-                            />
-                            {fieldState.error && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {fieldState.error.message}
-                                </p>
+                <SelectDeliveryMethod register={register} errors={errors} setMethod={setIsDelivery} />
+
+                {isDelivery &&
+                    <div>
+                        <Controller
+                            name="street"
+                            control={control}
+                            rules={{
+                                required: "Введіть вулицю",
+                            }}
+                            render={({ field, fieldState }) => (
+                                <div>
+                                    <StreetAutocomplete
+                                        value={field.value || ""}
+                                        onChange={(val) => field.onChange(val)}
+                                    />
+                                    {fieldState.error && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            {fieldState.error.message}
+                                        </p>
+                                    )}
+                                </div>
                             )}
-                        </div>
-                    )}
-                />
-                <InputNumber 
-                    register={register} 
-                    errors={errors} 
-                    label='Номер будинку' 
-                    nameField='building'
-                />
-                <InputNumber 
-                    register={register} 
-                    errors={errors} 
-                    label='Номер квартири' 
-                    nameField='apartment'
-                />
-                <PaymentMethod 
-                    register={register} 
+                        />
+                        <InputNumber
+                            register={register}
+                            errors={errors}
+                            label='Номер будинку'
+                            nameField='building'
+                        />
+                        <InputNumber
+                            register={register}
+                            errors={errors}
+                            label='Номер квартири'
+                            nameField='apartment'
+                        />
+                        <PaymentMethod
+                            register={register}
+                            errors={errors}
+                        />
+                    </div>
+                }
+                <InputComment
+                    register={register}
                     errors={errors}
                 />
-                <InputComment 
-                    register={register} 
-                    errors={errors}
-                />
-                <SubmitButton 
-                    isValid={isValid} 
+                <SubmitButton
+                    isValid={isValid}
                     isSubmitting={isSubmitting}
                     title='Підтвердити замовлення'
                 />

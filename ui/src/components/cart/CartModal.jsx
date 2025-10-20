@@ -29,7 +29,10 @@ const CartModal = ({ onClose }) => {
                         <span>{total} грн</span>
                     </div>
                     <Link to='./checkout'>
-                        <button className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'>
+                        <button
+                            className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'
+                            onClick={onClose}
+                        >
                             ОФОРМИТИ ЗАМОВЛЕННЯ
                         </button>
                     </Link>

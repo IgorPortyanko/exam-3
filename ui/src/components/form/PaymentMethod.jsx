@@ -1,5 +1,5 @@
 
-const PaymentMethod = ({ register, errors }) => {
+const PaymentMethod = ({ register, errors } ) => {
 
     return (
         <div>

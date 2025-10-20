@@ -8,13 +8,12 @@ const NavBottom = () => {
 
   const [isOpenResponsiveMenu, setIsOpenResponsiveMenu] = useState(false)
 
-  const handleOpenResponsiveMenu = () => {
-    setIsOpenResponsiveMenu(!isOpenResponsiveMenu)
-  }
+  const closeMenu = () => setIsOpenResponsiveMenu(false);
+  const toggleMenu = () => setIsOpenResponsiveMenu(prev => !prev);
 
   return (
     <div className="flex flex-auto justify-around sm:justify-between md:pt-5 items-center ">
-      {isOpenResponsiveMenu && <ResponsiveMenu onClose={handleOpenResponsiveMenu}/>}
+      {isOpenResponsiveMenu && <ResponsiveMenu onClose={closeMenu}/>}
       <div className="max-sm:hidden">
         <ul className="flex justify-between gap-5">
           <li><Link to='/pizza'>Піца</Link> </li>
@@ -25,7 +24,7 @@ const NavBottom = () => {
         </ul>
       </div>
       <button
-        onClick={handleOpenResponsiveMenu}
+        onClick={toggleMenu}
         className="group block relative w-[40px] h-5 sm:hidden">
         <span className="top-0 absolute bg-black w-full h-[1px] group-[.active]:rotate-45 group-[.active]:translate-y-2"></span>
         <span className="top-1/2 absolute bg-black w-full h-[1px] group-[.active]:opacity-0"></span>
