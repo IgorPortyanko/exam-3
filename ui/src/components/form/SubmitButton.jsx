@@ -1,6 +1,6 @@
 
 
-const SubmitButton = ({isValid, isSubmitting, title}) => {
+const SubmitButton = ({ isValid, isSubmitting, title }) => {
 
     return (
         <button
@@ -8,9 +8,14 @@ const SubmitButton = ({isValid, isSubmitting, title}) => {
             disabled={!isValid || isSubmitting}
             className={`w-full py-2 rounded-lg text-white text-lg cursor-pointer transition 
                     ${isSubmitting
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700"
-                }`}
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    }
+                    ${!isValid
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-blue-600"
+                    }
+                `}
         >
             {title}
         </button>

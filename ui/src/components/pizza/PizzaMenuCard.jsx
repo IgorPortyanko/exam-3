@@ -25,7 +25,7 @@ const PizzaMenuCard = (props) => {
     }
 
     const item = {
-        id: props.id+props.name,
+        id: props.id+props.name+price,
         name: props.name,
         img: `./src/assets/img/pizza/${props.img}`,
         price: price

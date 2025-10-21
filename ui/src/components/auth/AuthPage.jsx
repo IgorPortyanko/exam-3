@@ -17,7 +17,7 @@ const AuthPage = () => {
     });
 
     const onSubmit = (data) => {
-        console.log("📨 Надсилаємо дані:", data);
+        console.log("Надсилаємо дані:", data);
         localStorage.setItem("userData", JSON.stringify(data));
         reset();
     };

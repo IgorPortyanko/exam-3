@@ -42,11 +42,15 @@ const cartSlice = createSlice({
             if (item && item.number > 1) item.number--
             addCartToLocalStorage(state)
         },
+        clearCart: (state) => {
+            state.cart = []
+            addCartToLocalStorage(state)
+        }
     }
 })
 
 export const cartReducer = cartSlice.reducer
-export const { initializeCart, addToCart, deleteFromCart, increment, decrement } = cartSlice.actions
+export const { initializeCart, addToCart, deleteFromCart, increment, decrement, clearCart } = cartSlice.actions
 
 export const selectTotalSum = (state) =>
     state.cart.cart.reduce((acc, item) => acc + item.price * item.number, 0);

@@ -30,8 +30,9 @@ const CartModal = ({ onClose }) => {
                     </div>
                     <Link to='./checkout'>
                         <button
-                            className='text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block'
+                            className={`text-xl bg-[#9e2a2b] text-white py-2 px-3 rounded-2xl mx-auto block ${(total===0)? 'opacity-50': 'opacity-100'} `}
                             onClick={onClose}
+                            disabled={total===0}
                         >
                             ОФОРМИТИ ЗАМОВЛЕННЯ
                         </button>

@@ -23,7 +23,7 @@ app.use(express.json());
 // })
 
 app.listen(PORT, () => {
-  console.log(`🔥 Fake API server running on port ${PORT}`);
+  console.log(`Fake API server running on port ${PORT}`);
 });
 
 app.get("/pizza", (req, res) => res.json(pizzas));
