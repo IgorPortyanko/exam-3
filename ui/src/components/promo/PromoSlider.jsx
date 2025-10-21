@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react";
 import { promoList } from "../../store/promoSlice";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -20,11 +20,13 @@ const PromoSlider = () => {
     return (
         <div className="relative z-0 mb-5">
             <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
-                modules={[Navigation, Pagination, A11y]}
+                spaceBetween={15}
+                slidesPerView={1.6}
+                centeredSlides={true}
+                modules={[Navigation, Pagination, A11y, Autoplay]}
                 pagination={{ clickable: true }}
                 loop={true}
+                autoplay={{delay: 3000}}
             >
                 {allPromo.map(promo => (
                     <SwiperSlide key={promo.id}>
