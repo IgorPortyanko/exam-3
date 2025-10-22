@@ -6,7 +6,7 @@ const InputTel = ({ register, errors }) => {
                 <label className="block mb-1 font-medium">Телефон</label>
                 <input
                     type="tel"
-                    {...register("phone", {
+                    {...register("tel", {
                         required: "Введіть свій номер телефону",
                         pattern: {
                             value: /^[0-9]{10}$/,

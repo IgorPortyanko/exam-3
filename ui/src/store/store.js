@@ -6,6 +6,7 @@ import { rollsReducer } from './rollsSlice'
 import { setsReducer } from './setsSlice'
 import { sushiReducer } from './sushiSlice'
 import { cartReducer } from './cartSlice'
+import { usersReducer } from './usersSlise'
 
 export const store = configureStore({
     reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
         sets: setsReducer,
         sushi: sushiReducer,
         cart: cartReducer,
+        users: usersReducer,
     }
 })

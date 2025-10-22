@@ -8,7 +8,7 @@ const initialState = {
 
 export const promoList = createAsyncThunk('allpromo/fetchData', async () => {
     const response = await fetch('http://localhost:3001/promo')
-    const data = response.json()
+    const data = await response.json()
     return data
 })
 

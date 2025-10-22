@@ -12,6 +12,7 @@ import DeliveryPage from "./components/delivery/DeliveryPage";
 import ContactsPage from "./components/contacts/ContactsPage";
 import AuthPage from "./components/auth/AuthPage";
 import CheckoutPage from "./components/checkout/CheckoutPage";
+import RegisterPage from "./components/auth/RegisterPage";
 import './App.css'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/delivery' element={<DeliveryPage/>}></Route>
           <Route path='/contacts' element={<ContactsPage/>}></Route>
           <Route path='/auth' element={<AuthPage/>}></Route>
+          <Route path='/register' element={<RegisterPage/>}></Route>
           <Route path='/checkout' element={<CheckoutPage/>}></Route>
         </Route>
       </Routes>

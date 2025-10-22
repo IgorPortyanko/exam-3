@@ -6,6 +6,7 @@ import { rolls } from "./mockData/rolls.js";
 import { promotions } from "./mockData/promotions.js";
 import { sets } from "./mockData/sets.js";
 import { sushis } from "./mockData/sushis.js"
+import { users } from "./mockData/users.js";
 //const express = require('express')
 //const mysql = require('mysql')
 //const cors = require("cors");
@@ -32,6 +33,18 @@ app.get("/rolls", (req, res) => res.json(rolls));
 app.get("/promo", (req, res) => res.json(promotions));
 app.get("/sets", (req, res) => res.json(sets)); 
 app.get("/sushi", (req, res) => res.json(sushis));
+app.get("/users", (req, res) => res.json(users));
+
+app.post("/register", (req, res) => {
+  const newUser = req.body;
+
+  const userWithId = { id: Date.now(), ...newUser };
+  users.push(userWithId);
+
+  console.log("Новий користувач:", userWithId);
+
+  res.status(201).json({ message: "Реєстрація успішна", user: userWithId });
+});
 
 // function dbConnection (table) {
 //     return new Promise((resolve, reject) => {
