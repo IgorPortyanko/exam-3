@@ -9,7 +9,7 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter base="/exam-3/">
+      <BrowserRouter basename="/exam-3/">
         <App />
       </BrowserRouter>
     </Provider>
